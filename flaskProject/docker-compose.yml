@@ -1,0 +1,46 @@
+version: '3.8'
+services:
+  chrome:
+    image: selenium/standalone-chrome:4.1.0
+    hostname: chrome
+#    privileged: true
+    shm_size: 2g
+    ports:
+      - "4444:4444"
+      - "7900:7900"
+    restart: always
+
+#  selenium:
+#    image: selenium/standalone-chrome
+#    ports:
+#      - 4444:4444
+#    restart: always
+  app:
+    build: .
+    command: python -u app.py
+    ports:
+      - "5000:5000"
+    volumes:
+      - .:/app
+    depends_on:
+      - db
+      - chrome
+  db:
+    image: mongo:latest
+  #  hostname: mongodb
+    restart: unless-stopped
+#    environment:
+#      - MONGO_DATA_DIR=/data/db
+  #    - MONGO_INITDB_DATABASE=prestalink
+  #    - MONGO_INITDB_ROOT_USERNAME=root
+  #    - MONGO_INITDB_ROOT_PASSWORD=pass
+#    volumes:
+#      - ./dockerdata/db:/data/db
+    volumes:
+      - db-data:/data/db
+      - ./mongo-init.sh:/docker-entrypoint-initdb.d/mongo-init.sh
+    ports:
+      - "27017:27017"
+#    command: mongod
+volumes:
+  db-data:
