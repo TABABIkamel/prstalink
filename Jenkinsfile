@@ -1,18 +1,9 @@
 pipeline {
     agent any
     tools {
-        maven 'Maven 3.3.9'
-        jdk 'jdk11'
+        maven 'M3'
     }
     stages {
-         stage ('Initialize') {
-            steps {
-                sh '''
-                    echo "PATH = ${PATH}"
-                    echo "M2_HOME = ${MAVEN_HOME}"
-                '''
-            }
-        }
         stage('Build') {
             steps {
                 
