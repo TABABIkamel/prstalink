@@ -11,10 +11,9 @@ pipeline {
 
             }
         }
-        stage('tests unitaires') {
+        stage('tests static') {
             steps {
-
-                bat "mvn test"
+                bat "mvn sonar:sonar -Dsonar.projectKey=com.prestalink.tb:ao-service -Dsonar.host.url=http://localhost:9000   -Dsonar.login=e373b00107cf3748fec2e60202b5831d7d426f73"
             }
         }
         
