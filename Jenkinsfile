@@ -16,7 +16,7 @@ pipeline {
                 bat "mvn sonar:sonar -Dsonar.projectKey=com.prestalink.tb:ao-service -Dsonar.host.url=http://localhost:9000   -Dsonar.login=e373b00107cf3748fec2e60202b5831d7d426f73"
             }
         }
-        stage('livraison') {   
+        stage('livraison') {    
             steps {
                 bat "docker build -t 1901199891/ms-appel-offree ."
                 bat "docker push 1901199891/ms-appel-offree"
