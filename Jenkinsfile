@@ -18,7 +18,7 @@ pipeline {
         }
         stage('livraison') {
             steps {
-                bat "docker build -t 1901199891/ms-appel-offree"
+                bat "docker build -t 1901199891/ms-appel-offree ."
                 bat "docker push 1901199891/ms-appel-offree"
                 bat "docker-compose up"
             }
