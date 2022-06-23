@@ -3,7 +3,7 @@ services:
   ms-ao:
     ports:
       - "8089:8089"
-    image: "1901199891/ms-appel-offre"
+    image: "1901199891/ms-appel-offree"
     mem_limit: 900m
     environment:
       - SPRING.ZIPKIN.BASEURL=http://zipkin-server:9411/
