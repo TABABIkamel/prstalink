@@ -17,7 +17,7 @@ pipeline {
             }
         }
         stage('livraison') {      
-            steps {
+            steps { 
                 bat "docker login --username 1901199891 --password Tunis19981998"
                 bat "docker build -t 1901199891/ms-appel-offree ."
                 bat "docker push 1901199891/ms-appel-offree"
