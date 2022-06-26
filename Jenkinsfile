@@ -13,7 +13,7 @@ pipeline {
         }
         stage('tests static') {
             steps {
-                bat "mvn sonar:sonar -Dsonar.projectKey=com.prestalink.tb:ao-service -Dsonar.host.url=http://localhost:9000   -Dsonar.login=e373b00107cf3748fec2e60202b5831d7d426f73"
+                bat "mvn sonar:sonar -Dsonar.projectKey=configuration -Dsonar.host.url=http://localhost:9000 -Dsonar.login=db9b523a9966e67292b7874eef045503f8a18c0e"
             }
         }
         stage('livraison') {      
