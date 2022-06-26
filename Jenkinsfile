@@ -4,7 +4,7 @@ pipeline {
         maven 'M3'
     }
     stages {
-        stage('Build') {
+        stage('Build') { 
             steps {
                 
                 bat "mvn compile -Dmaven.test.failure.ignore=true clean install package"
